@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080706">
+
+<meta name="description"
+content="TOOT ANKH AMOON — $TOOT. The memecoin era meets ancient Egypt on Solana.">
+
+<title>TOOT ANKH AMOON — $TOOT</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#070605;
+    color:#f4eee3;
+    font-family:"Inter",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --black:#070605;
+    --black2:#0d0a07;
+    --gold:#d8ad52;
+    --gold-light:#f4d681;
+    --gold-dark:#8c641f;
+
+    --white:#f4eee3;
+    --gray:#a9a096;
+
+    --line:rgba(216,173,82,.22);
+
+    --max:1150px;
+}
+
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.035;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,.7) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.7) 1px,transparent 1px);
+
+    background-size:65px 65px;
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:500px;
+    height:500px;
+
+    top:-250px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:rgba(216,173,82,.12);
+
+    filter:blur(120px);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+.container{
+
+    width:calc(100% - 28px);
+
+    max-width:var(--max);
+
+    margin:auto;
+}
+
+section{
+
+    padding:90px 0;
+
+}
+
+.gold{
+
+    color:var(--gold-light);
+
+}
+
+.muted{
+
+    color:var(--gray);
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:1000;
+
+    background:rgba(7,6,5,.82);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(216,173,82,.13);
+
+}
+
+.nav{
+
+    height:68px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    font-family:"Cinzel",serif;
+
+    font-weight:900;
+
+    letter-spacing:.07em;
+
+}
+
+.logo-symbol{
+
+    width:38px;
+    height:38px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    border:1px solid var(--gold);
+
+    color:var(--gold-light);
+
+    font-size:18px;
+
+    background:rgba(216,173,82,.05);
+
+}
+
+.logo-text{
+
+    font-size:11px;
+
+}
+
+.nav-button{
+
+    padding:9px 14px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold)
+    );
+
+    color:#100c06;
+
+    font-size:10px;
+
+    font-weight:900;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    padding-top:120px;
+
+    padding-bottom:70px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.hero-content{
+
+    text-align:center;
+
+}
+
+.status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 12px;
+
+    border:1px solid var(--line);
+
+    border-radius:50px;
+
+    color:var(--gold-light);
+
+    background:rgba(216,173,82,.045);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+}
+
+.status-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#65d38b;
+
+    box-shadow:0 0 12px #65d38b;
+
+}
+
+.hero-symbol{
+
+    width:230px;
+    height:230px;
+
+    margin:35px auto 25px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    border:1px solid rgba(216,173,82,.4);
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(216,173,82,.17),
+            rgba(8,6,5,.98) 65%
+        );
+
+    box-shadow:
+
+        0 0 70px rgba(216,173,82,.12),
+
+        inset 0 0 50px rgba(216,173,82,.08);
+
+    position:relative;
+
+}
+
+.hero-symbol::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-14px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(216,173,82,.12);
+
+}
+
+.eye{
+
+    font-size:95px;
+
+    color:var(--gold-light);
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(244,214,129,.25)
+        );
+
+}
+
+.hero h1{
+
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(
+        43px,
+        11vw,
+        88px
+    );
+
+    line-height:.95;
+
+    font-weight:900;
+
+    letter-spacing:-.035em;
+
+}
+
+.hero h1 span{
+
+    display:block;
+
+    color:var(--gold-light);
+
+}
+
+.tagline{
+
+    margin:22px auto 0;
+
+    max-width:650px;
+
+    color:#ddd4c5;
+
+    font-size:clamp(
+        17px,
+        4vw,
+        22px
+    );
+
+    font-weight:700;
+
+}
+
+.description{
+
+    max-width:600px;
+
+    margin:13px auto 0;
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:28px;
+
+}
+
+.btn{
+
+    min-height:48px;
+
+    padding:0 19px;
+
+    border-radius:11px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    border:1px solid var(--line);
+
+    font-size:11px;
+
+    font-weight:900;
+
+    transition:.2s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.btn-main{
+
+    color:#100c06;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(216,173,82,.13);
+
+}
+
+.btn-dark{
+
+    background:rgba(255,255,255,.025);
+
+}
+
+
+/* =====================================================
+   CONTRACT
+===================================================== */
+
+.contract{
+
+    max-width:700px;
+
+    margin:25px auto 0;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    border:1px solid var(--line);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(216,173,82,.07),
+            rgba(255,255,255,.015)
+        );
+
+}
+
+.contract-label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.16em;
+
+}
+
+.contract-line{
+
+    display:flex;
+
+    gap:7px;
+
+}
+
+.contract-address{
+
+    flex:1;
+
+    min-width:0;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    background:#030302;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    color:#cfc5b6;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.copy{
+
+    border:0;
+
+    border-radius:9px;
+
+    padding:0 15px;
+
+    background:var(--gold-light);
+
+    color:#100c06;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+.copy-status{
+
+    display:block;
+
+    min-height:15px;
+
+    margin-top:6px;
+
+    color:#69d391;
+
+    font-size:10px;
+
+}
+
+
+/* =====================================================
+   SECTION HEAD
+===================================================== */
+
+.section-head{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.kicker{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
+
+}
+
+.section-title{
+
+    margin-top:8px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(
+        31px,
+        7vw,
+        53px
+    );
+
+    line-height:1.08;
+
+}
+
+.section-description{
+
+    margin-top:13px;
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   STORY
+===================================================== */
+
+.story-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap:18px;
+
+    margin-top:40px;
+
+}
+
+.story-card{
+
+    padding:27px;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.035),
+            rgba(255,255,255,.01)
+        );
+
+}
+
+.story-card h3{
+
+    margin-bottom:13px;
+
+    color:var(--gold-light);
+
+    font-family:"Cinzel",serif;
+
+    font-size:22px;
+
+}
+
+.story-card p{
+
+    color:var(--gray);
+
+    font-size:13px;
+
+    line-height:1.85;
+
+}
+
+.features{
+
+    display:grid;
+
+    gap:16px;
+
+}
+
+.feature{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.feature-icon{
+
+    flex:0 0 37px;
+
+    height:37px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:9px;
+
+    border:1px solid var(--line);
+
+    background:rgba(216,173,82,.06);
+
+}
+
+.feature strong{
+
+    display:block;
+
+    font-size:12px;
+
+}
+
+.feature span{
+
+    display:block;
+
+    margin-top:2px;
+
+    color:var(--gray);
+
+    font-size:10px;
+
+}
+
+
+/* =====================================================
+   KINGDOM LINKS
+===================================================== */
+
+.kingdom{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:13px;
+
+}
+
+.kingdom-card{
+
+    padding:23px 18px;
+
+    border:1px solid var(--line);
+
+    border-radius:17px;
+
+    background:rgba(255,255,255,.018);
+
+    text-align:center;
+
+    transition:.2s;
+
+}
+
+.kingdom-card:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(216,173,82,.055);
+
+}
+
+.kingdom-icon{
+
+    font-size:25px;
+
+    margin-bottom:9px;
+
+}
+
+.kingdom-card strong{
+
+    display:block;
+
+    font-size:13px;
+
+}
+
+.kingdom-card span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--gray);
+
+    font-size:10px;
+
+}
+
+
+/* =====================================================
+   TOKEN
+===================================================== */
+
+.token-box{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.token{
+
+    padding:22px;
+
+    border:1px solid var(--line);
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.018);
+
+}
+
+.token small{
+
+    display:block;
+
+    color:var(--gray);
+
+    font-size:9px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+
+}
+
+.token strong{
+
+    display:block;
+
+    margin-top:7px;
+
+    color:var(--gold-light);
+
+    font-family:"Cinzel",serif;
+
+    font-size:18px;
+
+}
+
+
+/* =====================================================
+   ROADMAP
+===================================================== */
+
+.roadmap{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.phase{
+
+    position:relative;
+
+    min-height:245px;
+
+    padding:25px;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            155deg,
+            rgba(216,173,82,.055),
+            rgba(255,255,255,.01)
+        );
+
+}
+
+.phase-number{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    font-weight:900;
+
+    letter-spacing:.18em;
+
+}
+
+.phase h3{
+
+    margin-top:8px;
+
+    color:var(--gold-light);
+
+    font-family:"Cinzel",serif;
+
+    font-size:23px;
+
+}
+
+.phase ul{
+
+    margin-top:15px;
+
+    padding-left:17px;
+
+    color:var(--gray);
+
+    font-size:11px;
+
+}
+
+.phase li{
+
+    margin-bottom:7px;
+
+}
+
+
+/* =====================================================
+   FINAL CTA
+===================================================== */
+
+.final{
+
+    padding-top:60px;
+
+}
+
+.final-box{
+
+    padding:60px 22px;
+
+    border:1px solid var(--line);
+
+    border-radius:25px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(216,173,82,.14),
+            transparent 60%
+        );
+
+}
+
+.final-box h2{
+
+    margin-top:10px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(
+        28px,
+        7vw,
+        50px
+    );
+
+    line-height:1.15;
+
+}
+
+.final-box p{
+
+    max-width:600px;
+
+    margin:15px auto 0;
+
+    color:var(--gray);
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    padding:45px 0 25px;
+
+    border-top:1px solid rgba(216,173,82,.1);
+
+}
+
+.footer-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    gap:17px;
+
+    color:var(--gray);
+
+    font-size:10px;
+
+}
+
+.copyright{
+
+    margin-top:8px;
+
+    color:var(--gray);
+
+    font-size:9px;
+
+}
+
+.disclaimer{
+
+    margin-top:23px;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+
+    color:#6f675e;
+
+    text-align:center;
+
+    font-size:8px;
+
+    line-height:1.7;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:800px){
+
+    .story-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .roadmap{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .container{
+
+        width:calc(100% - 22px);
+
+    }
+
+    .hero{
+
+        padding-top:105px;
+
+    }
+
+    .hero-symbol{
+
+        width:190px;
+        height:190px;
+
+        margin-top:28px;
+
+    }
+
+    .eye{
+
+        font-size:78px;
+
+    }
+
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn{
+
+        width:100%;
+
+    }
+
+    .contract-line{
+
+        flex-direction:column;
+
+    }
+
+    .contract-address{
+
+        width:100%;
+
+    }
+
+    .copy{
+
+        width:100%;
+
+        min-height:45px;
+
+    }
+
+    .kingdom{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .token-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+    section{
+
+        padding:70px 0;
+
+    }
+
+    .footer-top{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .footer-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media(max-width:380px){
+
+    .hero h1{
+
+        font-size:39px;
+
+    }
+
+    .hero-symbol{
+
+        width:170px;
+        height:170px;
+
+    }
+
+    .eye{
+
+        font-size:68px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="container nav">
+
+<a href="#home" class="logo">
+
+<div class="logo-symbol">𓂀</div>
+
+<div class="logo-text">
+TOOT ANKH AMOON
+</div>
+
+</a>
+
+<a
+href="https://t.me/toot_ankhamoon"
+target="_blank"
+rel="noopener"
+class="nav-button">
+
+JOIN TELEGRAM
+
+</a>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="home">
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+
+<div class="status">
+
+<span class="status-dot"></span>
+
+BUILT ON SOLANA
+
+</div>
+
+
+<div class="hero-symbol">
+
+<div class="eye">𓂀</div>
+
+</div>
+
+
+<h1>
+
+TOOT
+
+<span>
+
+ANKH AMOON
+
+</span>
+
+</h1>
+
+
+<p class="tagline">
+
+The memecoin era meets ancient Egypt. 👑🏺
+
+</p>
+
+
+<p class="description">
+
+An Egyptian-inspired community memecoin bringing
+ancient symbolism, internet culture and the Solana
+community together.
+
+</p>
+
+
+<div class="buttons">
+
+
+<a
+href="https://pump.fun/join/Tut_ankh_amoon"
+target="_blank"
+rel="noopener"
+class="btn btn-main">
+
+🚀 BUY $TOOT
+
+</a>
+
+
+<a
+href="https://t.me/toot_ankhamoon"
+target="_blank"
+rel="noopener"
+class="btn btn-dark">
+
+✈️ TELEGRAM
+
+</a>
+
+
+<a
+href="https://dexscreener.com/solana/J9XH3wThMHkfApDSbjecqp6t6FS5ZHaLvcewwZf6923B"
+target="_blank"
+rel="noopener"
+class="btn btn-dark">
+
+📊 DEXSCREENER
+
+</a>
+
+
+</div>
+
+
+<div class="contract">
+
+<span class="contract-label">
+
+$TOOT OFFICIAL CONTRACT ADDRESS
+
+</span>
+
+
+<div class="contract-line">
+
+
+<div
+class="contract-address"
+id="contract">
+
+6sSiwoDGAbSmy6KkRb6QEUzcmmim5J6PCq1zKsgGpump
+
+</div>
+
+
+<button
+class="copy"
+onclick="copyContract()">
+
+COPY CA
+
+</button>
+
+
+</div>
+
+
+<span
+class="copy-status"
+id="copyStatus">
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="kicker">
+THE STORY
+</div>
+
+<h2 class="section-title">
+
+Ancient inspiration.<br>
+
+<span class="gold">
+Solana energy.
+</span>
+
+</h2>
+
+<p class="section-description">
+
+A modern community memecoin inspired by the
+visual identity and legendary history of ancient Egypt.
+
+</p>
+
+</div>
+
+
+<div class="story-grid">
+
+
+<div class="story-card">
+
+<h3>
+What is $TOOT?
+</h3>
+
+<p>
+
+$TOOT is a community-driven memecoin on Solana,
+built around an Egyptian-inspired identity.
+
+<br><br>
+
+The project combines ancient symbolism,
+internet culture and the energy of Solana
+meme communities.
+
+<br><br>
+
+The mission is simple:
+
+<strong>
+build a recognizable community and a memorable meme brand.
+</strong>
+
+</p>
+
+</div>
+
+
+<div class="story-card">
+
+<div class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+👑
+</div>
+
+<div>
+
+<strong>
+The King
+</strong>
+
+<span>
+Inspired by the legacy of ancient Egyptian kings.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🏺
+</div>
+
+<div>
+
+<strong>
+Ancient Egypt
+</strong>
+
+<span>
+A powerful Egyptian-inspired visual identity.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<div>
+
+<strong>
+Solana
+</strong>
+
+<span>
+Part of the Solana memecoin ecosystem.
+</span>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔥
+</div>
+
+<div>
+
+<strong>
+Community
+</strong>
+
+<span>
+The community is at the center of $TOOT.
+</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     KINGDOM
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="kicker">
+THE KINGDOM
+</div>
+
+<h2 class="section-title">
+Enter the $TOOT Kingdom
+</h2>
+
+<p class="section-description">
+
+Everything you need to follow the project.
+
+</p>
+
+</div>
+
+
+<div class="kingdom">
+
+
+<a
+href="https://t.me/toot_ankhamoon"
+target="_blank"
+rel="noopener"
+class="kingdom-card">
+
+<div class="kingdom-icon">
+✈️
+</div>
+
+<strong>
+Telegram
+</strong>
+
+<span>
+Join the community
+</span>
+
+</a>
+
+
+<a
+href="https://dexscreener.com/solana/J9XH3wThMHkfApDSbjecqp6t6FS5ZHaLvcewwZf6923B"
+target="_blank"
+rel="noopener"
+class="kingdom-card">
+
+<div class="kingdom-icon">
+📊
+</div>
+
+<strong>
+DexScreener
+</strong>
+
+<span>
+View the live chart
+</span>
+
+</a>
+
+
+<a
+href="https://pump.fun/join/Tut_ankh_amoon"
+target="_blank"
+rel="noopener"
+class="kingdom-card">
+
+<div class="kingdom-icon">
+🚀
+</div>
+
+<strong>
+Pump.fun
+</strong>
+
+<span>
+View $TOOT
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TOKEN
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head">
+
+<div class="kicker">
+TOKEN
+</div>
+
+<h2 class="section-title">
+The $TOOT Identity
+</h2>
+
+<p class="section-description">
+
+Simple. Recognizable. Egyptian.
+
+</p>
+
+</div>
+
+
+<div class="token-box">
+
+
+<div class="token">
+
+<small>
+Name
+</small>
+
+<strong>
+Toot Ankh Amoon
+</strong>
+
+</div>
+
+
+<div class="token">
+
+<small>
+Symbol
+</smal
