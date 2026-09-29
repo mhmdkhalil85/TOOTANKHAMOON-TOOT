@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOOT ANKH AMOON ($TOOT) - Solana Memecoin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #09090b;
+      --card-bg: rgba(22, 19, 12, 0.75);
+      --gold: #f59e0b;
+      --gold-bright: #fbbf24;
+      --gold-glow: rgba(245, 158, 11, 0.25);
+      --solana: #14F195;
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border: rgba(245, 158, 11, 0.25);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    h1, h2, h3, .brand { font-family: 'Cinzel', serif; }
+    canvas#particles {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 0;
+    }
+    .container {
+      max-width: 1000px; margin: 0 auto; padding: 0 20px;
+      position: relative; z-index: 1;
+    }
+    /* Header */
+    header {
+      padding: 20px 0; display: flex; justify-content: space-between; align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 1.4rem; font-weight: 800; color: var(--gold-bright);
+      letter-spacing: 2px; text-decoration: none; display: flex; align-items: center; gap: 8px;
+    }
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none;
+      transition: all 0.3s ease; font-size: 0.95rem; cursor: pointer; border: none;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000; box-shadow: 0 4px 20px var(--gold-glow);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(245, 158, 11, 0.4); }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover {
+      border-color: var(--gold-bright); color: var(--gold-bright);
+      background: rgba(245, 158, 11, 0.05); transform: translateY(-2px);
+    }
+    /* Hero */
+    .hero {
+      text-align: center; padding: 80px 0 50px;
+    }
+    .badge {
+      display: inline-block; padding: 6px 16px; background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--gold); color: var(--gold-bright); border-radius: 50px;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: 3.5rem; color: #fff; margin-bottom: 15px; text-shadow: 0 0 30px var(--gold-glow);
+    }
+    .hero p.tagline {
+      font-size: 1.5rem; color: var(--gold-bright); font-family: 'Cinzel', serif; margin-bottom: 15px;
+    }
+    .hero p.desc {
+      max-width: 600px; margin: 0 auto 35px; color: var(--text-muted); font-size: 1.1rem;
+    }
+    .hero-btns {
+      display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;
+    }
+    /* Section Cards */
+    .card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 20px; padding: 35px; margin: 30px 0;
+      backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .section-title {
+      font-size: 1.8rem; color: var(--gold-bright); margin-bottom: 15px; text-align: center;
+    }
+    /* About */
+    .story-text {
+      text-align: center; font-size: 1.1rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 25px;
+    }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(245, 158, 11, 0.15);
+      padding: 18px; border-radius: 12px; text-align: center; font-weight: 700; font-size: 1rem;
+    }
+    /* Contract Address */
+    .ca-box {
+      background: rgba(0,0,0,0.6); border: 1px solid var(--gold);
+      padding: 15px 20px; border-radius: 12px; display: flex; align-items: center;
+      justify-content: space-between; gap: 15px; flex-wrap: wrap; margin-top: 20px;
+    }
+    .ca-text {
+      font-family: monospace; font-size: 1.05rem; color: var(--gold-bright); word-break: break-all;
+    }
+    /* Market Links */
+    .market-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 20px;
+    }
+    .market-btn {
+      padding: 18px; border-radius: 12px; text-align: center; font-weight: 800;
+      text-decoration: none; font-size: 1.05rem; transition: all 0.3s;
+      border: 1px solid var(--border); background: rgba(255,255,255,0.02); color: #fff;
+    }
+    .market-btn:hover {
+      border-color: var(--gold); background: rgba(245, 158, 11, 0.1); transform: translateY(-3px);
+    }
+    /* Vision */
+    .vision-card { text-align: center; }
+    .vision-card p { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-muted); }
+    /* Toast */
+    #toast {
+      position: fixed; bottom: 30px; right: 30px; background: var(--gold-bright);
+      color: #000; padding: 12px 24px; border-radius: 8px; font-weight: 700;
+      display: none; box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 9999;
+    }
+    /* Footer */
+    footer {
+      text-align: center; padding: 40px 0; border-top: 1px solid var(--border);
+      color: var(--text-muted); font-size: 0.9rem; margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.3rem; }
+      .ca-box { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <a href="#" class="logo">👑 TOOT ANKH AMOON</a>
+      <span style="color: var(--solana); font-weight:700;">$TOOT</span>
+    </header>
+
+    <!-- 1. Hero -->
+    <section class="hero">
+      <div class="badge">$TOOT • SOLANA MEMECOIN</div>
+      <h1>TOOT ANKH AMOON</h1>
+      <p class="tagline">The King Never Fades. 👑</p>
+      <p class="desc">A Solana memecoin inspired by King Tutankhamun and ancient Egyptian culture.</p>
+      <div class="hero-btns">
+        <a href="https://t.me/toot_ankhamoon" target="_blank" class="btn btn-gold">JOIN TELEGRAM</a>
+        <a href="https://dexscreener.com/solana/J9XH3wThMHkfApDSbjecqp6t6FS5ZHaLvcewwZf6923B" target="_blank" class="btn btn-outline">VIEW ON DEXSCREENER</a>
+      </div>
+    </section>
+
+    <!-- 2. About $TOOT -->
+    <section class="card">
+      <h2 class="section-title">THE STORY</h2>
+      <p class="story-text">Toot Ankh Amoon brings ancient Egyptian inspiration into the Solana memecoin era. Built step by step, with a community-first mindset.</p>
+      <div class="features-grid">
+        <div class="feature-item">🏺 Egyptian-inspired</div>
+        <div class="feature-item">⚡ Built on Solana</div>
+        <div class="feature-item">🤝 Community-driven</div>
+        <div class="feature-item">🔥 Growing step by step</div>
+      </div>
+    </section>
+
+    <!-- 3. Contract Address -->
+    <section class="card">
+      <h2 class="section-title">$TOOT CONTRACT</h2>
+      <div class="ca-box">
+        <span class="ca-text" id="ca">6sSiwoDGAbSmy6KkRb6QEUzcmmim5J6PCq1zKsgGpump</span>
+        <button class="btn btn-gold" onclick="copyCA()">COPY CA</button>
+      </div>
+    </section>
+
+    <!-- 4. Community -->
+    <section class="card" style="text-align: center;">
+      <h2 class="section-title">JOIN THE KINGDOM 👑</h2>
+      <p style="color: var(--text-muted); margin-bottom: 25px; font-size: 1.1rem;">Follow the journey, meet the community, and stay updated.</p>
+      <a href="https://t.me/toot_ankhamoon" target="_blank" class="btn btn-gold" style="padding: 16px 40px; font-size: 1.1rem;">JOIN TELEGRAM</a>
+    </section>
+
+    <!-- 5. Market Links -->
+    <section class="card">
+      <h2 class="section-title">MARKET LINKS</h2>
+      <div class="market-grid">
+        <a href="https://dexscreener.com/solana/J9XH3wThMHkfApDSbjecqp6t6FS5ZHaLvcewwZf6923B" target="_blank" class="market-btn">DEXSCREENER</a>
+        <a href="https://pump.fun/callouts/6sSiwoDGAbSmy6KkRb6QEUzcmmim5J6PCq1zKsgGpump/14831d73-a18a-4ffd-9fc3-8cfb1c7795c7" target="_blank" class="market-btn">PUMP.FUN</a>
+        <a href="https://t.me/toot_ankhamoon" target="_blank" class="market-btn">TELEGRAM</a>
+      </div>
+    </section>
+
+    <!-- 6. Vision -->
+    <section class="card vision-card">
+      <h2 class="section-title">BUILD. CREATE. GROW.</h2>
+      <p>No fake promises.</p>
+      <p>No guaranteed returns.</p>
+      <p style="color: var(--gold-bright); font-weight: 700; margin-top: 10px;">Just a community building something from the ground up.</p>
+      <h3 style="margin-top: 20px; font-size: 1.4rem; color: var(--gold-bright);">The King Never Fades. 👑🏺</h3>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer>
+      <h3 style="color: var(--gold-bright); margin-bottom: 5px;">TOOT ANKH AMOON</h3>
+      <p style="color: var(--solana); font-weight:700; margin-bottom: 15px;">$TOOT</p>
+      <p>© 2026 Toot Ankh Amoon | Built on Solana 🏺</p>
+    </footer>
+  </div>
+
+  <div id="toast">Contract Address Copied!</div>
+
+  <script>
+    function copyCA() {
+      const ca = document.getElementById('ca').innerText;
+      navigator.clipboard.writeText(ca).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => toast.style.display = 'none', 2500);
+      });
+    }
+
+    // Particle Background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const pts = Array.from({length: 45}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 2 + 0.8,
+      d: Math.random() * 0.4 + 0.1
+    }));
+
+    function draw() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+      pts.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.y -= p.d;
+        if(p.y < 0) p.y = canvas.height;
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>
